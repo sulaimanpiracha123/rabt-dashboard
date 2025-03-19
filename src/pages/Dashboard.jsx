@@ -32,7 +32,8 @@ const Dashboard = () => {
 
   return (
     <Layout pageHeading="Dashboard">
-      <div class="grid grid-cols-3 gap-4 mb-4">
+      {/* Responsive Grid for Data Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
         {data.map((item) => (
           <div
             key={item.id}
@@ -62,22 +63,24 @@ const Dashboard = () => {
           </div>
         ))}
       </div>
-      <div class="grid grid-cols-3 gap-4 p-2 bg-gray-50 dark:bg-gray-800">
-        <div class="basis-128 flex flex-col items-center justify-center">
+
+      {/* Responsive Grid for Dropdown, DatePicker, and Button */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-2 bg-gray-50 dark:bg-gray-800">
+        <div className="flex flex-col items-center justify-center">
           <Dropdown options={options} onSelect={handleSelect} />
         </div>
-        <div class="basis-128 ">
+        <div className="flex flex-col items-center justify-center">
           <DateRangePicker block />
         </div>
-        <div class="basis-128 flex flex-col">
-         <Button>Apply</Button>
+        <div className="flex flex-col items-center justify-center">
+          <Button>Apply</Button>
         </div>
       </div>
 
-      <div class="   p-5  mt-3 h-60 w-full mb-4 rounded-sm bg-gray-50 dark:bg-gray-800">
-        <div className="flex justify-between p-4 ">
+      {/* Responsive Stats Section */}
+      <div className="p-5 mt-3 h-60 w-full mb-4 rounded-sm bg-gray-50 dark:bg-gray-800">
+        <div className="flex justify-between p-4">
           <h2>Stats</h2>
-
           <p>Last 30 Days</p>
         </div>
         <div className="flex items-center justify-center mt-2">
@@ -85,8 +88,9 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div class="  h-48 mb-4 rounded-sm bg-gray-50 dark:bg-gray-800">
-        <div class="grid grid-cols-3 gap-4 mt-4">
+      {/* Responsive Grid for Additional Data Cards */}
+      <div className="h-48 mb-4 rounded-sm bg-gray-50 dark:bg-gray-800">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
           {datas.map((item) => (
             <div
               key={item.id}
@@ -101,11 +105,12 @@ const Dashboard = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-center item-center mt-5">
+        <div className="flex justify-center items-center mt-5">
           <p>Google Maps</p>
         </div>
       </div>
     </Layout>
   );
 };
+
 export default Dashboard;

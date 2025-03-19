@@ -7,28 +7,48 @@ import Button from "../components/common/Button";
 const Help = () => {
   return (
     <Layout pageHeading="Help Center">
-      <div className="grid auto-cols-max grid-flow-col justify-center bg-gray-50 dark:bg-gray-800">
-        <h3 class="text-3xl font-bold dark:text-white">
+      <div className="flex flex-col items-center p-4 bg-gray-50 dark:bg-gray-800 min-h-screen">
+        {/* Heading */}
+        <h3 className="text-xl md:text-3xl lg:text-4xl font-bold dark:text-white text-center mb-4">
           Tell us what you need
         </h3>
-        <label class="text-lg mb-2 dark:text-white">Contact US</label>
-        <TextField placeholder="Subject" labelText="Subject" />
 
-        <Textarea
+        {/* Contact Us Label */}
+        <label className="text-lg md:text-xl lg:text-2xl dark:text-white mb-4">
+          Contact Us
+        </label>
+
+        {/* Form Container */}
+        <div className="w-full max-w-xl bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+          {/* Subject Field */}
+          <div className="mb-6">
+            <TextField
+              placeholder="Subject"
+              labelText="Subject"
+              className="w-full"
+            />
+          </div>
+
+          {/* Details Textarea */}
+          <div className="mb-6">
+            <Textarea
               name="formula"
               cols={20}
               rows={5}
               placeholder="Details..."
               labelText="Details"
+              className="w-full"
             />
-            <div className="flex justify-end mt-2">
-                <Button>Submit</Button>
+          </div>
 
-            </div>
+          {/* Submit Button */}
+          <div className="flex justify-end">
+            <Button className="w-full md:w-auto">Submit</Button>
+          </div>
+        </div>
       </div>
     </Layout>
   );
 };
 
 export default Help;
-            //   onChange={handleFormData}

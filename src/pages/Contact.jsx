@@ -57,15 +57,19 @@ const Contact = () => {
 
   return (
     <Layout pageHeading="Contacts">
-      <div className="flex p-4 justify-between">
-        <SearchField placeholder="Search" />
-        <Button>Download Leads</Button>
-      </div>
-      <div className="p-4">
-        <Dropdown options={options} className="w-5" />
+      {/* Search and Button Section */}
+      <div className="flex flex-col md:flex-row p-4 justify-between gap-4">
+        <SearchField placeholder="Search" className="w-full md:w-auto" />
+        <Button className="w-full md:w-auto">Download Leads</Button>
       </div>
 
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      {/* Dropdown Section */}
+      <div className="p-4">
+        <Dropdown options={options} className="w-full md:w-48" />
+      </div>
+
+      {/* Table Section */}
+      <div className="p-4 overflow-x-auto">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -91,7 +95,10 @@ const Contact = () => {
           </thead>
           <tbody>
             {users.map((item) => (
-              <tr key={item.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+              <tr
+                key={item.id}
+                className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200"
+              >
                 <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   {item.name}
                 </td>
@@ -104,7 +111,6 @@ const Contact = () => {
                     <img
                       className="w-10 h-10 rounded-full"
                       src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                      // src={item.imageUrl}
                       alt={item.name}
                     />
                     <div className="ps-3">

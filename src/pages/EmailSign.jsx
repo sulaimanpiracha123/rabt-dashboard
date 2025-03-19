@@ -48,37 +48,42 @@ const EmailSign = () => {
 
   return (
     <Layout pageHeading="Email Signature">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4 w-full">
+      {/* Responsive Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
         {users.map((user) => (
           <div
             key={user.id}
-            className="max-w-80
- flex flex-col bg-white border border-gray-200 border-t-4 border-t-blue-600 shadow-2xl rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:border-t-blue-500 dark:shadow-neutral-700/70"
+            className="max-w-lg flex flex-col bg-white border border-gray-200 border-t-4 border-t-blue-600 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:border-t-blue-500 dark:shadow-neutral-700/70"
           >
             <div className="p-4 md:p-5">
-              <div className="flex flex-row gap-4">
-                <img
-                  className="rounded-full w-20 h-20"
-                  // src={user.imageUrl}
-                  src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                  // alt={`${user.name}'s profile`}
-                />
-                <div className="flex flex-col text-nowrap">
+              <div className="flex flex-row justify-between p-4 bg-white border border-gray-200 border-t-4 border-t-blue-600 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:border-t-blue-500 dark:shadow-neutral-700/70">
+                <div className="flex flex-col">
+                  <img
+                    className="rounded-full w-20 h-20"
+                    // src={user.imageUrl}
+                    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+
+                    alt={`${user.name}'s profile`}
+                  />
+                  <label className="inline-flex items-center cursor-pointer mt-5">
+                    <input type="checkbox" value="" className="sr-only peer" />
+                    <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
+                  </label>
+                </div>
+
+                <div className="flex flex-col text-nowrap mr-5">
                   <p className="font-semibold">{user.name}</p>
                   <p className="text-sm text-gray-500">{user.position}</p>
                   <p className="text-sm text-gray-500 text-nowrap">
                     {user.phone}
                   </p>
                 </div>
-                <div className="w-96">
-                  <img src={QRCODE} />
+                <div className="w-24">
+                  <img src={QRCODE} alt="QR Code" />
                   <p className="text-nowrap text-sm">Lets Connect</p>
                 </div>
               </div>
-              <label class="inline-flex items-center cursor-pointer mb-5">
-                <input type="checkbox" value="" class="sr-only peer" />
-                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
-              </label>
+
               <div className="flex justify-center mt-4">
                 <button
                   type="button"
@@ -86,10 +91,11 @@ const EmailSign = () => {
                 >
                   Save Email Signature
                 </button>
-              </div>{" "}
+              </div>
             </div>
           </div>
-        ))} </div>
+        ))}
+      </div>
     </Layout>
   );
 };
